@@ -305,13 +305,18 @@
       #landing {
         flex-direction: column;
         height: auto;
+        padding: 1rem 0.5rem;
       }
       #landing .left-side, #landing .right-side {
         width: 100%;
-        padding: 1.5rem;
+        padding: 1rem 1rem;
       }
       #landing .right-side h1 {
-        font-size: 2rem;
+        font-size: 1.75rem;
+      }
+      #landing .right-side button {
+        font-size: 1rem;
+        padding: 0.5rem 1.5rem;
       }
       #original-header nav ul {
         flex-direction: column;
@@ -348,6 +353,41 @@
         background: #fff;
         border-radius: 2px;
         transition: all 0.3s ease;
+      }
+    }
+    /* Footer links styling */
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      padding: 0.5rem 1rem;
+      color: var(--color-link-light);
+      border-radius: 4px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer-links a:hover,
+    .footer-links a:focus {
+      background-color: var(--color-primary-light);
+      color: white;
+      outline: none;
+      text-decoration: underline;
+    }
+    @media (max-width: 480px) {
+      .footer-links {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+      }
+      .footer-links a {
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem 0;
       }
     }
 
@@ -426,13 +466,54 @@
       outline: none;
       box-shadow: 0 6px 12px rgba(211,84,0,0.5);
     }
-  </style>
+    /* Animations */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes floatLogo {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    #landing .left-side.animate {
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 0.3s;
+    }
+    #landing .right-side.animate {
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 0.6s;
+    }
+    #landing .left-side img.animate {
+      animation: floatLogo 3s ease-in-out infinite;
+    }
+    #original-website.animate {
+      animation: fadeIn 1s ease forwards;
+    }
+    </style>
 </head>
 <body>
   <!-- Landing page -->
   <div id="landing" role="main" aria-label="Landing page with logo and welcome note">
     <div class="left-side" aria-label="Logo section">
-      <img src="DevOrbitZ.jpg" alt="DevOrbitz company logo" loading="lazy" />
+      <img src="DevOrbitZ.jpg" alt="DevOrbitz company logo" loading="lazy" class="animate" />
     </div>
     <div class="right-side" aria-label="Welcome note and explore now button">
       <h1>Welcome to DevOrbitz</h1>
@@ -623,6 +704,10 @@
       } else {
         setDarkMode(false);
       }
++      // Add animation classes on page load
++      document.querySelector('#landing .left-side').classList.add('animate');
++      document.querySelector('#landing .right-side').classList.add('animate');
++      document.querySelector('#landing .left-side img').classList.add('animate');
     });
 
     darkModeToggle.addEventListener('click', () => {
@@ -635,6 +720,7 @@
 
     exploreNowBtn.addEventListener('click', () => {
       originalWebsite.style.display = 'block';
++      originalWebsite.classList.add('animate');
       originalWebsite.scrollIntoView({ behavior: 'smooth' });
     });
 
