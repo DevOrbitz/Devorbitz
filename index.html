@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevOrbitz - Empowering Innovation with Black Box AI</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="DevOrbitz - Innovative software development, machine learning, and data science services powered by Black Box AI." />
+  <meta name="keywords" content="DevOrbitz, software development, machine learning, data science, Black Box AI, AI solutions, web development" />
+  <meta name="author" content="DevOrbitz" />
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="DevOrbitz - Empowering Innovation with Black Box AI" />
+  <meta property="og:description" content="Innovative software development, machine learning, and data science services powered by Black Box AI." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.devorbitz.com" />
+  <meta property="og:image" content="DevOrbitZ.jpg" />
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DevOrbitz - Empowering Innovation with Black Box AI" />
+  <meta name="twitter:description" content="Innovative software development, machine learning, and data science services powered by Black Box AI." />
+  <meta name="twitter:image" content="DevOrbitZ.jpg" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --color-primary-dark: #0a3d62;
+      --color-primary-light: #e67e22;
+      --color-primary-hover: #d35400;
+      --color-background-light: #f9fafb;
+      --color-background-dark: #121212;
+      --color-text-light: #333;
+      --color-text-dark: #e0e0e0;
+      --color-link-light: #e67e22;
+      /* Changed dark mode orange to green */
+      --color-link-dark: #4caf50;
+      --color-link-dark-hover: #66bb6a;
+    }
+    /* Reset and base styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--color-text-light);
+      background-color: var(--color-background-light);
+      scroll-behavior: smooth;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    a {
+      color: var(--color-link-light);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover, a:focus {
+      color: var(--color-primary-hover);
+      text-decoration: underline;
+      outline: none;
+    }
+    /* Dark mode styles */
+    body.dark-mode {
+      background-color: var(--color-background-dark);
+      color: var(--color-text-dark);
+    }
+    body.dark-mode a {
+      color: var(--color-link-dark);
+    }
+    body.dark-mode a:hover,
+    body.dark-mode a:focus {
+      color: var(--color-link-dark-hover);
+    }
+    /* Landing page split layout */
+    #landing {
+      display: flex;
+      height: 100vh;
+      max-width: 1200px;
+      margin: 0 auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    #landing .left-side, #landing .right-side {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    #landing .left-side {
+      background-color: var(--color-primary-dark);
+    }
+    #landing .left-side img {
+      max-width: 80%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    #landing .right-side {
+      background-color: var(--color-background-light);
+      color: var(--color-text-light);
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    body.dark-mode #landing .right-side {
+      background-color: #1e1e1e;
+      color: var(--color-text-dark);
+    }
+    #landing .right-side h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--color-primary-dark);
+    }
+    body.dark-mode #landing .right-side h1 {
+      color: var(--color-link-dark);
+    }
+    #landing .right-side p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    #landing .right-side button {
+      background-color: var(--color-primary-light);
+      color: white;
+      border: none;
+      padding: 0.75rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(230,126,34,0.3);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    #landing .right-side button:hover,
+    #landing .right-side button:focus {
+      background-color: var(--color-primary-hover);
+      transform: scale(1.05);
+      outline: none;
+      box-shadow: 0 6px 12px rgba(211,84,0,0.5);
+    }
+    /* Original website container */
+    #original-website {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: none;
+    }
+    /* Header for original website */
+    #original-header {
+      background: var(--color-primary-dark);
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    #original-header .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    #original-header .logo img {
+      height: 50px;
+      width: auto;
+      max-width: 100%;
+      border-radius: 4px;
+    }
+    #original-header nav {
+      position: relative;
+    }
+    #original-header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+    #original-header nav ul li {
+      position: relative;
+      font-weight: 600;
+    }
+    #original-header nav ul li a {
+      padding: 0.5rem 0;
+      display: inline-block;
+      color: var(--color-primary-light);
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    #original-header nav ul li a:hover,
+    #original-header nav ul li a:focus {
+      color: var(--color-primary-hover);
+      outline: none;
+      text-decoration: underline;
+    }
+    /* Dropdown menu */
+    #original-header nav ul li .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--color-primary-dark);
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      min-width: 180px;
+      z-index: 1001;
+    }
+    #original-header nav ul li .dropdown a {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: var(--color-primary-light);
+      font-weight: 500;
+      border-bottom: 1px solid rgba(230,126,34,0.3);
+      transition: background-color 0.3s ease;
+    }
+    #original-header nav ul li .dropdown a:last-child {
+      border-bottom: none;
+    }
+    #original-header nav ul li .dropdown a:hover,
+    #original-header nav ul li .dropdown a:focus {
+      background-color: var(--color-primary-hover);
+      color: white;
+      outline: none;
+    }
+    /* Show dropdown on parent hover */
+    #original-header nav ul li:hover .dropdown,
+    #original-header nav ul li:focus-within .dropdown {
+      display: block;
+    }
+    /* Dark mode header */
+    body.dark-mode #original-header {
+      background: #1e1e1e;
+      color: var(--color-text-dark);
+      box-shadow: 0 2px 8px rgba(255,255,255,0.1);
+    }
+    body.dark-mode #original-header nav ul li a {
+      color: var(--color-link-dark);
+    }
+    body.dark-mode #original-header nav ul li a:hover,
+    body.dark-mode #original-header nav ul li a:focus {
+      color: var(--color-link-dark-hover);
+    }
+    body.dark-mode #original-header nav ul li .dropdown {
+      background: #1e1e1e;
+      box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+    }
+    body.dark-mode #original-header nav ul li .dropdown a {
+      color: var(--color-link-dark);
+      border-color: rgba(76,175,80,0.3);
+    }
+    body.dark-mode #original-header nav ul li .dropdown a:hover,
+    body.dark-mode #original-header nav ul li .dropdown a:focus {
+      background-color: var(--color-link-dark-hover);
+      color: var(--color-primary-dark);
+    }
+    /* Dark mode toggle button */
+    #darkModeToggle {
+      background: transparent;
+      border: 2px solid var(--color-primary-light);
+      color: var(--color-primary-light);
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: none;
+    }
+    #darkModeToggle:hover,
+    #darkModeToggle:focus {
+      background-color: var(--color-primary-light);
+      color: white;
+      outline: none;
+    }
+    /* Content sections for original website */
+    #original-content section {
+      margin-bottom: 3rem;
+    }
+    #original-content h2 {
+      color: var(--color-primary-hover);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid var(--color-primary-light);
+      display: inline-block;
+      padding-bottom: 0.25rem;
+    }
+    body.dark-mode #original-content h2 {
+      color: var(--color-link-dark);
+      border-color: var(--color-link-dark-hover);
+    }
+    #original-content p {
+      font-size: 1.1rem;
+      color: #444;
+    }
+    body.dark-mode #original-content p {
+      color: #ccc;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      #landing {
+        flex-direction: column;
+        height: auto;
+      }
+      #landing .left-side, #landing .right-side {
+        width: 100%;
+        padding: 1.5rem;
+      }
+      #landing .right-side h1 {
+        font-size: 2rem;
+      }
+      #original-header nav ul {
+        flex-direction: column;
+        background: var(--color-primary-dark);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        border-radius: 0 0 4px 4px;
+        z-index: 1001;
+      }
+      #original-header nav ul.open {
+        max-height: 500px;
+      }
+      #original-header nav ul li {
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+      }
+      #original-header nav ul li:last-child {
+        border-bottom: none;
+      }
+      #menuToggle {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        width: 30px;
+        height: 25px;
+        justify-content: space-between;
+      }
+      #menuToggle span {
+        height: 3px;
+        background: #fff;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+    }
+
+    /* Professional form styles */
+    .contact-form {
+      max-width: 600px;
+      margin-top: 1rem;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      color: #333;
+    }
+    body.dark-mode .contact-form {
+      background: #2c2c2c;
+      color: #ddd;
+      box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+    }
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.25rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      font-family: inherit;
+      resize: vertical;
+      background: #fff;
+      color: #333;
+    }
+    body.dark-mode .contact-form input[type="text"],
+    body.dark-mode .contact-form input[type="email"],
+    body.dark-mode .contact-form textarea {
+      background: #444;
+      border-color: #666;
+      color: #ddd;
+    }
+    .contact-form input[type="text"]:focus,
+    .contact-form input[type="email"]:focus,
+    .contact-form textarea:focus {
+      border-color: var(--color-primary-light);
+      outline: none;
+      box-shadow: 0 0 5px var(--color-primary-light);
+      background: #fff;
+      color: #333;
+    }
+    body.dark-mode .contact-form input[type="text"]:focus,
+    body.dark-mode .contact-form input[type="email"]:focus,
+    body.dark-mode .contact-form textarea:focus {
+      background: #555;
+      color: #fff;
+    }
+    .contact-form button.btn-primary {
+      background-color: var(--color-primary-light);
+      color: white;
+      border: none;
+      padding: 0.75rem 2rem;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(230,126,34,0.3);
+    }
+    .contact-form button.btn-primary:hover,
+    .contact-form button.btn-primary:focus {
+      background-color: var(--color-primary-hover);
+      transform: scale(1.05);
+      outline: none;
+      box-shadow: 0 6px 12px rgba(211,84,0,0.5);
+    }
+  </style>
+</head>
+<body>
+  <!-- Landing page -->
+  <div id="landing" role="main" aria-label="Landing page with logo and welcome note">
+    <div class="left-side" aria-label="Logo section">
+      <img src="DevOrbitZ.jpg" alt="DevOrbitz company logo" loading="lazy" />
+    </div>
+    <div class="right-side" aria-label="Welcome note and explore now button">
+      <h1>Welcome to DevOrbitz</h1>
+      
+      <button id="exploreNowBtn" aria-label="Explore full website content">Explore Now</button>
+    </div>
+  </div>
+
+  <!-- Original website view -->
+  <div id="original-website" role="main" aria-label="Original website content" tabindex="0">
+    <header id="original-header">
+      <div class="logo">
+        <img src="DevOrbitZ.jpg" alt="DevOrbitz company logo" loading="lazy" />
+      </div>
+      <nav role="navigation" aria-label="Primary navigation">
+        <div id="menuToggle" aria-label="Toggle navigation menu" role="button" tabindex="0" aria-expanded="false" aria-controls="primary-navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul id="primary-navigation">
+          <li tabindex="0">
+            <a href="#" aria-haspopup="true" aria-expanded="false" aria-controls="about-submenu">About <i class="fas fa-caret-down"></i></a>
+            <div class="dropdown" role="menu" id="about-submenu" aria-label="About submenu">
+              <a href="#about" role="menuitem" tabindex="-1">Company Overview</a>
+              <a href="#team" role="menuitem" tabindex="-1">Our Team</a>
+              <a href="#history" role="menuitem" tabindex="-1">History</a>
+            </div>
+          </li>
+          <li tabindex="0">
+            <a href="#" aria-haspopup="true" aria-expanded="false" aria-controls="services-submenu">Services <i class="fas fa-caret-down"></i></a>
+            <div class="dropdown" role="menu" id="services-submenu" aria-label="Services submenu">
+              <a href="#services" role="menuitem" tabindex="-1">What We Offer</a>
+              <a href="#custom-software" role="menuitem" tabindex="-1">Custom Software</a>
+              <a href="#ai-solutions" role="menuitem" tabindex="-1">AI Solutions</a>
+            </div>
+          </li>
+          <li tabindex="0">
+            <a href="#" aria-haspopup="true" aria-expanded="false" aria-controls="why-choose-us-submenu">Why Choose Us <i class="fas fa-caret-down"></i></a>
+            <div class="dropdown" role="menu" id="why-choose-us-submenu" aria-label="Why Choose Us submenu">
+              <a href="#why-choose-us" role="menuitem" tabindex="-1">Our Advantages</a>
+              <a href="#client-testimonials" role="menuitem" tabindex="-1">Testimonials</a>
+              <a href="#scalability" role="menuitem" tabindex="-1">Scalability</a>
+            </div>
+          </li>
+          <li tabindex="0">
+            <a href="#" aria-haspopup="true" aria-expanded="false" aria-controls="recent-work-submenu">Recent Work <i class="fas fa-caret-down"></i></a>
+            <div class="dropdown" role="menu" id="recent-work-submenu" aria-label="Recent Work submenu">
+              <a href="#portfolio" role="menuitem" tabindex="-1">Portfolio</a>
+              <a href="#case-studies" role="menuitem" tabindex="-1">Case Studies</a>
+              <a href="#awards" role="menuitem" tabindex="-1">Awards</a>
+            </div>
+          </li>
+          <li tabindex="0">
+            <a href="#" aria-haspopup="true" aria-expanded="false" aria-controls="join-team-submenu">Join Our Team <i class="fas fa-caret-down"></i></a>
+            <div class="dropdown" role="menu" id="join-team-submenu" aria-label="Join Our Team submenu">
+              <a href="#join-team" role="menuitem" tabindex="-1">Careers</a>
+              <a href="#internships" role="menuitem" tabindex="-1">Internships</a>
+              <a href="#culture" role="menuitem" tabindex="-1">Culture</a>
+            </div>
+          </li>
+          <li tabindex="0">
+            <a href="#" aria-haspopup="true" aria-expanded="false" aria-controls="contact-submenu">Contact <i class="fas fa-caret-down"></i></a>
+            <div class="dropdown" role="menu" id="contact-submenu" aria-label="Contact submenu">
+              <a href="#contact" role="menuitem" tabindex="-1">Contact Info</a>
+              <a href="#support" role="menuitem" tabindex="-1">Support</a>
+              <a href="#locations" role="menuitem" tabindex="-1">Locations</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <button id="darkModeToggle" aria-label="Toggle dark and light mode" aria-pressed="false">Dark Mode</button>
+    </header>
+    <div id="original-content">
+      <section id="about" tabindex="0">
+        <h2>Welcome to DevOrbitz</h2>
+        <p>At Dev Orbitz, we are committed to shaping the future of technology by delivering top-tier development services and creating valuable learning opportunities for aspiring professionals.
+
+            We specialize in software development, AI & machine learning, backend systems, and data analytics, offering solutions that help businesses thrive in a competitive digital environment.
+            
+            As part of our mission to give back to the tech community, we proudly provide structured internship programs that equip students and recent graduates with real-world experience, mentorship, and the skills needed to launch successful careers.
+            
+            
+            Join us at Dev Orbitz — where innovation meets opportunity.
+            
+            Empowering businesses, Enabling talent, Building the future.</p>
+      </section>
+      <section id="services" tabindex="0">
+        <h2>Our Services</h2>
+        <ul class="services-list">
+          <li class="service-item" tabindex="0" aria-expanded="false" aria-controls="service1-desc" role="button">
+            <h3 id="service1">Custom Software Development</h3>
+            <p id="service1-desc" hidden>We specialize in developing tailor-made software solutions that meet your specific business needs. Whether you require a mobile application, enterprise system, or web platform, our experienced team delivers secure, scalable, and high-quality software.</p>
+          </li>
+          <li class="service-item" tabindex="0" aria-expanded="false" aria-controls="service2-desc" role="button">
+            <h3 id="service2">Machine Learning & AI Solutions</h3>
+            <p id="service2-desc" hidden>We provide advanced machine learning and artificial intelligence services that enable smarter decisions, process automation, and predictive insights. Our AI solutions are designed to solve complex challenges and unlock new opportunities.</p>
+          </li>
+          <li class="service-item" tabindex="0" aria-expanded="false" aria-controls="service3-desc" role="button">
+            <h3 id="service3">Data Science & Analytics</h3>
+            <p id="service3-desc" hidden>Make sense of your data with our analytics expertise. We help you uncover patterns, optimize performance, and turn data into actionable insights that drive strategic decision-making.</p>
+          </li>
+          <li class="service-item" tabindex="0" aria-expanded="false" aria-controls="service4-desc" role="button">
+            <h3 id="service4">Web Development & Design</h3>
+            <p id="service4-desc" hidden>Your online presence matters. We create visually appealing, responsive, and high-performing websites and web applications that enhance user experience and reflect your brand identity.</p>
+          </li>
+          <li class="service-item" tabindex="0" aria-expanded="false" aria-controls="service5-desc" role="button">
+            <h3 id="service5">Internships & Talent Development</h3>
+            <p id="service5-desc" hidden>We are committed to fostering the next generation of tech professionals. Through our hands-on internship programs in software development, machine learning, and data science, we provide students and fresh graduates with real-world experience and mentorship.</p>
+          </li>
+        </ul>
+      </section>
+      <section id="why-choose-us" tabindex="0">
+        <h2>Why Choose DevOrbitz?</h2>
+        <p>At DevOrbitz, we’re more than just a tech company — we’re your innovation partner. Here’s why businesses trust us:</p>
+        <ul class="services-list" style="list-style: disc inside;">
+          <li><strong>Innovation:</strong>We leverage the latest in software and AI technologies to build intelligent systems that adapt to your evolving business needs.</li>
+          <li><strong>Expertise:</strong> Our team of skilled developers, data scientists, and AI engineers brings deep technical knowledge and hands-on experience to deliver impactful, high-quality solutions.</li>
+          <li><strong>Scalability:</strong> Every solution we build is designed with growth in mind — flexible, scalable, and ready to evolve with your business demands.</li>
+          <li><strong>Client-Centric:</strong> We prioritize your vision. By listening closely to your needs, we craft custom strategies that align with your goals and deliver measurable results.
+
+          </li>
+        </ul>
+      </section>
+      <section id="portfolio" tabindex="0">
+        <h2>Our Recent Work</h2>
+        <canvas id="workChart" aria-label="Bar chart showing projects completed in various categories" role="img"></canvas>
+        <p>Check out our portfolio to see how we’ve helped businesses like yours innovate, automate, and grow. From AI-driven solutions to full-scale software development, we have a track record of success.</p>
+      </section>
+      <section id="join-team" tabindex="0">
+        <h2>Join Our Team!</h2>
+        <p>We’re always looking for talented individuals to join the DevOrbitz team. If you're passionate about software development, machine learning, or data science, apply now to be part of an innovative and growing company.</p>
+      </section>
+      <section id="contact" tabindex="0">
+        <h2>Contact Information</h2>
+        <div class="contact-info">
+          <span><i class="fas fa-envelope"></i> <a href="mailto:contact@devorbitz.com">devorbitzorg@gmail.com</a></span>
+          <span><i class="fas fa-phone"></i> 9948924456 </span>
+          <!-- <span><i class="fas fa-map-marker-alt"></i> Vishakapatnam, Andhrapradesh</span> -->
+        </div>
+        <form class="contact-form" aria-label="Contact form">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required aria-required="true" />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required aria-required="true" />
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required aria-required="true"></textarea>
+          <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 DevOrbitz. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#privacy-policy" tabindex="0">Privacy Policy</a>
+      <a href="#terms-of-service" tabindex="0">Terms of Service</a>
+      <a href="#contact" tabindex="0">Contact</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Dark mode persistence
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    function setDarkMode(enabled) {
+      if (enabled) {
+        body.classList.add('dark-mode');
+        darkModeToggle.textContent = 'Light Mode';
+        darkModeToggle.setAttribute('aria-pressed', 'true');
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        body.classList.remove('dark-mode');
+        darkModeToggle.textContent = 'Dark Mode';
+        darkModeToggle.setAttribute('aria-pressed', 'false');
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    }
+
+    // Load dark mode preference on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      const darkModePref = localStorage.getItem('darkMode');
+      if (darkModePref === 'enabled') {
+        setDarkMode(true);
+      } else {
+        setDarkMode(false);
+      }
+    });
+
+    darkModeToggle.addEventListener('click', () => {
+      setDarkMode(!body.classList.contains('dark-mode'));
+    });
+
+    // Explore Now button scrolls to original website content
+    const exploreNowBtn = document.getElementById('exploreNowBtn');
+    const originalWebsite = document.getElementById('original-website');
+
+    exploreNowBtn.addEventListener('click', () => {
+      originalWebsite.style.display = 'block';
+      originalWebsite.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Mobile menu toggle for original website
+    const menuToggle = document.getElementById('menuToggle');
+    const navUl = document.querySelector('#original-header nav ul');
+    menuToggle.addEventListener('click', () => {
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !expanded);
+      navUl.classList.toggle('open');
+    });
+    menuToggle.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        menuToggle.click();
+      }
+    });
+
+    // Dropdown accessibility and keyboard support
+    const navItems = document.querySelectorAll('#original-header nav ul li');
+    navItems.forEach(item => {
+      const link = item.querySelector('a');
+      const dropdown = item.querySelector('.dropdown');
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const expanded = link.getAttribute('aria-expanded') === 'true';
+        link.setAttribute('aria-expanded', !expanded);
+        if (dropdown) {
+          dropdown.style.display = expanded ? 'none' : 'block';
+        }
+      });
+      link.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          link.click();
+        }
+      });
+      // Close dropdown when focus leaves
+      item.addEventListener('focusout', (e) => {
+        if (!item.contains(e.relatedTarget)) {
+          link.setAttribute('aria-expanded', 'false');
+          if (dropdown) {
+            dropdown.style.display = 'none';
+          }
+        }
+      });
+    });
+
+    // Chart.js example for Recent Work section
+    const ctx = document.getElementById('workChart').getContext('2d');
+    const workChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['AI Solutions', 'Software Development', 'Data Science', 'Web Apps', 'Internships'],
+        datasets: [{
+          label: 'Projects Completed',
+          data: [12, 19, 7, 14, 5],
+          backgroundColor: [
+            '#0078d7',
+            '#005ea2',
+            '#009688',
+            '#ff9800',
+            '#9c27b0'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              stepSize: 1
+            }
+          }
+        }
+      }
+    });
+
+    // Accordion for Services section with accessibility
+    const serviceItems = document.querySelectorAll('.service-item');
+    serviceItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const expanded = item.getAttribute('aria-expanded') === 'true';
+        item.setAttribute('aria-expanded', !expanded);
+        const desc = item.querySelector('p');
+        if (!expanded) {
+          desc.hidden = false;
+          desc.style.maxHeight = desc.scrollHeight + 'px';
+        } else {
+          desc.style.maxHeight = null;
+          desc.hidden = true;
+        }
+      });
+      item.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          item.click();
+        }
+      });
+    });
+
+    // Contact form submission (dummy)
+    const contactForm = document.querySelector('.contact-form');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for contacting DevOrbitz! We will get back to you shortly.');
+      contactForm.reset();
+    });
+  </script>
+</body>
+</html>
